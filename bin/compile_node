@@ -32,9 +32,9 @@ export_env_dir $env_dir
 ####### Determine current state
 
 # What's the requested semver range for node?
-#node_engine=$(package_json ".engines.node")
+node_engine=$(package_json ".engines.node")
 # Node version is locked for now: newer ones don't work with Meteor.
-node_engine="0.10.40"
+#node_engine="4.5.0"
 node_previous=$(file_contents "$cache_dir/node/node-version")
 
 # What's the requested semver range for npm?
@@ -61,7 +61,11 @@ test -d $cache_dir/node/node_modules && modules_cached=true || modules_cached=fa
 ####### Provide debugging info and feedback
 
 echo ""
-info "Node engine:         ${node_engine:-unspecified}"
+info "Node engine:         ${
+
+
+
+:-unspecified}"
 info "Npm engine:          ${npm_engine:-unspecified}"
 info "Start mechanism:     ${start_method:-none}"
 info "node_modules source: ${modules_source:-none}"
